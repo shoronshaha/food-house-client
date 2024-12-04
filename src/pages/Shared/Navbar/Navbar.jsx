@@ -1,24 +1,22 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <a>Item 1</a>
+        <Link to="/">HOME</Link>
       </li>
       <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li>
-              <a>Submenu 1</a>
-            </li>
-            <li>
-              <a>Submenu 2</a>
-            </li>
-          </ul>
-        </details>
+        <Link>CONTACT US</Link>
       </li>
       <li>
-        <a>Item 3</a>
+        <Link>DASHBOARD</Link>
+      </li>
+      <li>
+        <Link to="/menu">OUR MENU</Link>
+      </li>
+      <li>
+        <Link>OUR SHOP</Link>
       </li>
     </>
   );
