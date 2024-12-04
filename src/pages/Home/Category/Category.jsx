@@ -17,8 +17,8 @@ const Category = () => {
         heading={"Order Online"}
       ></SectionTitle>
       <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
+        slidesPerView={4}
+        spaceBetween={20}
         pagination={{
           clickable: true,
         }}
@@ -28,35 +28,35 @@ const Category = () => {
         <SwiperSlide>
           {" "}
           <img src={slide1} />
-          <h3 className="text-4xl uppercase text-center -mt-16 text-white">
+          <h3 className="lg:text-4xl md:text-2xl uppercase -mt-16 text-white">
             Salads
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           {" "}
           <img src={slide2} />
-          <h3 className="text-4xl uppercase text-center -mt-16 text-white">
+          <h3 className="lg:text-4xl md:text-2xl uppercase -mt-16 text-white">
             Pizza
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           {" "}
           <img src={slide3} />
-          <h3 className="text-4xl uppercase text-center -mt-16 text-white">
+          <h3 className="lg:text-4xl md:text-2xl uppercase -mt-16 text-white">
             Soups
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           {" "}
           <img src={slide4} />
-          <h3 className="text-4xl uppercase text-center -mt-16 text-white">
+          <h3 className="lg:text-4xl md:text-2xl uppercase -mt-16 text-white">
             DESSERTS
           </h3>
         </SwiperSlide>
         <SwiperSlide>
           {" "}
           <img src={slide5} />
-          <h3 className="text-4xl uppercase text-center -mt-16 text-white">
+          <h3 className="lg:text-4xl md:text-2xl uppercase -mt-16 text-white">
             Salads
           </h3>
         </SwiperSlide>
