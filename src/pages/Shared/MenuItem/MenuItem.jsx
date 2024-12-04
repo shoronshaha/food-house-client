@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const MenuItem = ({ item }) => {
   const { name, image, price, recipe } = item;
   console.log(name);
@@ -17,6 +19,10 @@ const MenuItem = ({ item }) => {
       <p className="text-yellow-500">${price}</p>
     </div>
   );
+};
+
+MenuItem.propTypes = {
+  item: PropTypes.node,
 };
 
 export default MenuItem;

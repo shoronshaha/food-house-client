@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const SectionTitle = ({ heading, subHeading }) => {
   return (
     <div className="mx-auto text-center md:w-4/12 my-8">
@@ -7,6 +9,11 @@ const SectionTitle = ({ heading, subHeading }) => {
       </h3>
     </div>
   );
+};
+
+SectionTitle.propTypes = {
+  heading: PropTypes.node,
+  subHeading: PropTypes.node,
 };
 
 export default SectionTitle;
