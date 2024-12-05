@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 import Cover from "../../Shared/Cover/Cover";
+import { Link } from "react-router-dom";
 
 const MenuCategory = ({ items, title, img }) => {
   return (
@@ -12,6 +13,11 @@ const MenuCategory = ({ items, title, img }) => {
           <MenuItem key={item._id} item={item}></MenuItem>
         ))}
       </div>
+      <Link to={`/order/${title}`}>
+        <button className="btn btn-outline border-0 border-b-4 bg-black uppercase">
+          order now
+        </button>
+      </Link>
     </div>
   );
 };
