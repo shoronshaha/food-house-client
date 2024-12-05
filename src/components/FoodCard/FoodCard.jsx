@@ -16,7 +16,9 @@ const FoodCard = ({ item }) => {
           <p>{recipe}</p>
 
           <div className="card-actions">
-            <button className="btn btn-primary uppercase">Add to cart</button>
+            <button className="btn btn-outline border-0 border-b-4 bg-black uppercase">
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
