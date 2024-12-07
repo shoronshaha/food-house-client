@@ -34,5 +34,8 @@ const OrderTab = ({ items }) => {
 OrderTab.propTypes = {
   items: PropTypes.node,
 };
+FoodCard.propTypes = {
+  item: PropTypes.ReactNode,
+};
 
 export default OrderTab;

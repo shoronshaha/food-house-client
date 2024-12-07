@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import orderCover from "../../../assets/shop/banner2.jpg";
 import Cover from "../../Shared/Cover/Cover";
@@ -51,6 +52,10 @@ const Order = () => {
       </Tabs>
     </div>
   );
+};
+
+OrderTab.propTypes = {
+  items: PropTypes.node,
 };
 
 export default Order;

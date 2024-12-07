@@ -1,7 +1,33 @@
 import PropTypes from "prop-types";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const FoodCard = ({ item }) => {
   const { name, image, price, recipe } = item;
+  const { user } = useAuth;
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    if (user && user.email) {
+      // TOdo send cart item to the database
+    } else {
+      Swal.fire({
+        title: "You Are Not Logged In",
+        text: "Please login for add to the Cart?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // send to user to the login page
+          navigate("/login");
+        }
+      });
+    }
+  };
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-xl">
@@ -16,7 +42,10 @@ const FoodCard = ({ item }) => {
           <p>{recipe}</p>
 
           <div className="card-actions">
-            <button className="btn btn-outline border-0 border-b-4 bg-black uppercase">
+            <button
+              onClick={() => handleAddToCart(item)}
+              className="btn btn-outline border-0 border-b-4 bg-black uppercase"
+            >
               Add to cart
             </button>
           </div>
@@ -27,5 +56,8 @@ const FoodCard = ({ item }) => {
 };
 FoodCard.propTypes = {
   item: PropTypes.node,
+};
+FoodCard.propTypes = {
+  items: PropTypes.node,
 };
 export default FoodCard;
