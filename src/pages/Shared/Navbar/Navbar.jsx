@@ -31,10 +31,12 @@ const Navbar = () => {
         <Link>CONTACT US</Link>
       </li>
       <li>
-        <button className="btn">
-          <FaCartShopping className="mt-4" />
-          <div className="badge badge-secondary">+{cart.length}</div>
-        </button>
+        <Link to="/dashboard/cart">
+          <button className="btn">
+            <FaCartShopping className="mt-4" />
+            <div className="badge badge-secondary">+{cart.length}</div>
+          </button>
+        </Link>
       </li>
       {user ? (
         <>
