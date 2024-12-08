@@ -18,6 +18,7 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
+  console.log("state in the location login page", location.state);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -34,7 +35,7 @@ const Login = () => {
       console.log(user);
 
       Swal.fire({
-        title: "Welcome to food house successfuly login",
+        title: "Welcome to food house successfully login",
         showClass: {
           popup: `
             animate__animated
@@ -117,12 +118,11 @@ const Login = () => {
                   name="captcha"
                   placeholder="Type the given captcha"
                   className="input input-bordered"
-                  required
                 />
               </div>
               <div className="form-control mt-6">
                 <input
-                  disabled={disabled}
+                  disabled={false}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"

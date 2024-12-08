@@ -1,16 +1,45 @@
 import PropTypes from "prop-types";
-import useAuth from "../../hooks/useAuth";
+
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+// import axios from "axios";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useContext } from "react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const FoodCard = ({ item }) => {
-  const { name, image, price, recipe } = item;
-  const { user } = useAuth;
+  const { name, image, price, recipe, _id } = item;
+  const { user } = useContext(AuthContext);
+  // const { user } = useAuth;
   const navigate = useNavigate();
+  const location = useLocation();
+  const axiosSecure = useAxiosSecure();
 
-  const handleAddToCart = () => {
+  console.log("user", user);
+
+  const handleAddToCart = (food) => {
     if (user && user.email) {
       // TOdo send cart item to the database
+      console.log(user.email, food);
+      const cartItem = {
+        menuId: _id,
+        email: user.email,
+        name,
+        image,
+        price,
+      };
+      axiosSecure.post("/carts", cartItem).then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${name} added to your card`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
     } else {
       Swal.fire({
         title: "You Are Not Logged In",
@@ -23,11 +52,12 @@ const FoodCard = ({ item }) => {
       }).then((result) => {
         if (result.isConfirmed) {
           // send to user to the login page
-          navigate("/login");
+          navigate("/login", { state: { from: location } });
         }
       });
     }
   };
+
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-xl">
