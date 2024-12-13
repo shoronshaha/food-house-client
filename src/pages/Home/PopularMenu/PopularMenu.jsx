@@ -1,7 +1,7 @@
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 import useMenu from "../../../hooks/useMenu";
-
+import PropTypes from "prop-types";
 const PopularMenu = () => {
   const [menu] = useMenu();
   const popular = menu.filter((item) => item.category === "popular");
@@ -33,6 +33,10 @@ const PopularMenu = () => {
       </button>
     </section>
   );
+};
+
+PopularMenu.propTypes = {
+  item: PropTypes.node,
 };
 
 export default PopularMenu;
