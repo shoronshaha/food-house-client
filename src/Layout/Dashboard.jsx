@@ -97,6 +97,13 @@ const Dashboard = () => {
                   My Bookings
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/dashboard/payment">
+                  {" "}
+                  <FaAd />
+                  Payment
+                </NavLink>
+              </li>
             </>
           )}
           <div className="divider"></div>
