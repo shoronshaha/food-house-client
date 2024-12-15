@@ -29,7 +29,7 @@ const Navbar = () => {
       {
         // user ? 'true' : 'false'
       }
-      ,
+
       {user && isAdmin && (
         <li>
           <Link to="/dashboard/adminHome">Dashboard</Link>
