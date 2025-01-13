@@ -3,7 +3,7 @@ function Contact() {
     <div className="min-h-screen bg-black-100 flex items-center justify-center p-6">
       <div className="bg-white shadow-lg rounded-lg max-w-4xl w-full flex flex-col md:flex-row">
         {/* Left Section: Contact Information */}
-        <div className="md:w-1/2 p-6 bg-orange-500 text-white rounded-t-lg md:rounded-l-lg md:rounded-t-none">
+        <div className="md:w-1/2 p-6 bg-orange-400 text-white rounded-t-lg md:rounded-l-lg md:rounded-t-none">
           <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
           <p className="mb-6">
             We’d love to hear from you! Please fill out the form on the right or
@@ -26,7 +26,7 @@ function Contact() {
         </div>
 
         {/* Right Section: Contact Form */}
-        <div className="md:w-1/2 p-6 bg-orange-500">
+        <div className="md:w-1/2 p-6 bg-orange-400">
           <form className="space-y-4">
             <div>
               <label
