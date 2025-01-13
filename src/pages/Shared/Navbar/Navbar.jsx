@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaCartShopping, FaUser } from "react-icons/fa6";
 import useCart from "../../../hooks/useCart";
 import useAdmin from "../../../hooks/useAdmin";
 
@@ -45,15 +45,18 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/dashboard/cart">
-          <button className="btn">
+          <>
             <FaCartShopping className="mt-4" />
             <div className="badge badge-secondary">+{cart.length}</div>
-          </button>
+          </>
         </Link>
       </li>
       {user ? (
         <>
-          <span className="text-white">{user?.displayName}</span>
+          <span className="text-white mt-3 flex gap-2">
+            {" "}
+            <FaUser /> {user?.displayName}
+          </span>
           <button onClick={handleLogOut} className="btn btn-ghost">
             LOGOUT
           </button>

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  validateCaptcha,
+  // validateCaptcha,
 } from "react-simple-captcha";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   // const captchaRef = useRef(null);
-  const [disabled, setDisabled] = useState(true);
+  // const [disabled, setDisabled] = useState(true);
 
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -56,14 +56,14 @@ const Login = () => {
     });
   };
 
-  const handleValidateCaptcha = (e) => {
-    const user_captcha_value = e.target.value;
-    if (validateCaptcha(user_captcha_value) == true) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  };
+  // const handleValidateCaptcha = (e) => {
+  //   const user_captcha_value = e.target.value;
+  //   if (validateCaptcha(user_captcha_value) == true) {
+  //     setDisabled(false);
+  //   } else {
+  //     setDisabled(true);
+  //   }
+  // };
   return (
     <>
       <Helmet>
@@ -112,14 +112,14 @@ const Login = () => {
                 <label className="label">
                   <LoadCanvasTemplate />
                 </label>
-                <input
+                {/* <input
                   onBlur={handleValidateCaptcha}
                   type="text"
                   // ref={captchaRef}
                   name="captcha"
                   placeholder="Type the given captcha"
                   className="input input-bordered"
-                />
+                /> */}
               </div>
               <div className="form-control mt-6">
                 <input
