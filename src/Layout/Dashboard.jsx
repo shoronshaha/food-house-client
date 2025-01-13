@@ -1,6 +1,5 @@
 import { FaAd, FaHome, FaSearch, FaShoppingCart } from "react-icons/fa";
 import {
-  FaBook,
   FaCalendar,
   FaEnvelope,
   FaList,
