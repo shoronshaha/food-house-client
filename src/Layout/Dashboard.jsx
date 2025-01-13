@@ -44,13 +44,7 @@ const Dashboard = () => {
                   manage items
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/bookings">
-                  {" "}
-                  <FaBook />
-                  manage bookings
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink to="/dashboard/users">
                   {" "}
@@ -129,7 +123,7 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/order/contact">
+            <NavLink to="/contact">
               {" "}
               <FaEnvelope />
               Contact

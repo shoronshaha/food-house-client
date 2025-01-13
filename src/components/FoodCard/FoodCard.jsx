@@ -65,7 +65,7 @@ const FoodCard = ({ item }) => {
   };
 
   return (
-    <div>
+    <div className="grid">
       <div className="border card bg-base-100 w-96 shadow-2xl hover">
         <figure className="px-10 pt-10">
           <img src={image} alt="Shoes" className="rounded-xl" />

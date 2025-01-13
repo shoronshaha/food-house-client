@@ -32,22 +32,22 @@ const Navbar = () => {
 
       {user && isAdmin && (
         <li>
-          <Link to="/dashboard/adminHome">Dashboard</Link>
+          <Link to="/dashboard/adminHome">DASHBOARD</Link>
         </li>
       )}
       {user && !isAdmin && (
         <li>
-          <Link to="/dashboard/userHome">Dashboard</Link>
+          <Link to="/dashboard/userHome">DASHBOARD</Link>
         </li>
       )}
       <li>
-        <Link>CONTACT US</Link>
+        <Link to="/contact">CONTACT US</Link>
       </li>
       <li>
         <Link to="/dashboard/cart">
           <>
             <FaCartShopping className="mt-4" />
-            <div className="badge badge-secondary">+{cart.length}</div>
+            <div className="badge badge-warning">+{cart.length}</div>
           </>
         </Link>
       </li>

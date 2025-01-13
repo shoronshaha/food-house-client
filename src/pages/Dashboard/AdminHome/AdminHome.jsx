@@ -140,8 +140,8 @@ const AdminHome = () => {
           <div className="stat-desc">↘︎ 90 (14%)</div>
         </div>
       </div>
-      <div className="flex">
-        <div className="w-1/2">
+      <div className="flex flex-wrap mt-10">
+        <div className="w-full md:w-1/2">
           <BarChart
             width={500}
             height={300}
@@ -168,8 +168,8 @@ const AdminHome = () => {
             </Bar>
           </BarChart>
         </div>
-        <div className="w-1/2">
-          <PieChart width={400} height={400}>
+        <div className="w-full md:w-1/2 p-2 sm:mt-5">
+          <PieChart width={400} height={250}>
             <Pie
               data={pieChartData}
               cx="50%"
@@ -187,7 +187,7 @@ const AdminHome = () => {
                 />
               ))}
             </Pie>
-            <Legend></Legend>
+            <Legend />
           </PieChart>
         </div>
       </div>

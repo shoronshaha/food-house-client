@@ -2,6 +2,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 import useMenu from "../../../hooks/useMenu";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const PopularMenu = () => {
   const [menu] = useMenu();
   const popular = menu.filter((item) => item.category === "popular");
@@ -28,9 +29,11 @@ const PopularMenu = () => {
         ))}
       </div>
 
-      <button className="btn btn-outline border-0 border-b-4 bg-black uppercase">
-        View Full Menu
-      </button>
+      <Link to="/order/salad">
+        <button className="btn btn-outline border-0 border-b-4 bg-black uppercase">
+          View Full Menu
+        </button>
+      </Link>
     </section>
   );
 };
