@@ -2,7 +2,10 @@
 
 # Admin :
 
-korim@gmail.com
-Korim@1234
+admin@gmail.com
+Admin@2025
 
-http://localhost:5000
+# User :
+
+saikat@gmail.com
+S@123456

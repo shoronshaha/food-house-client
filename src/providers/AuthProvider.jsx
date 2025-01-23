@@ -22,7 +22,6 @@ const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
   const axiosPublic = useAxiosPublic();
 
-  console.log("user", user);
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -53,25 +52,30 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log("current user", currentUser);
+      console.log("Current user:", currentUser);
+
       if (currentUser) {
-        // get token and store client
         const userInfo = { email: currentUser.email };
-        axiosPublic.post("/jwt", userInfo).then((res) => {
-          if (res.data.token) {
-            localStorage.setItem("access-token", res.data.token);
-            setLoading(false);
-          }
-        });
+        axiosPublic
+          .post("/jwt", userInfo)
+          .then((res) => {
+            if (res.data.token) {
+              localStorage.setItem("access-token", res.data.token);
+            } else {
+              console.error("Failed to generate token.");
+            }
+          })
+          .catch((error) => {
+            console.error("JWT fetch error:", error);
+          })
+          .finally(() => setLoading(false));
       } else {
-        // todo remove token(it token stored in the client side: Local storage,caching,in memory)
         localStorage.removeItem("access-token");
+        setLoading(false);
       }
-      setLoading(false);
     });
-    return () => {
-      return unsubscribe();
-    };
+
+    return () => unsubscribe();
   }, [axiosPublic]);
 
   const authInfo = {
@@ -83,13 +87,14 @@ const AuthProvider = ({ children }) => {
     logOut,
     updateUserProfile,
   };
+
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 
 AuthProvider.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default AuthProvider;

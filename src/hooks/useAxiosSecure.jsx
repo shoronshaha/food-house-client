@@ -3,33 +3,35 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: import.meta.env.VITE_REACT_API_BASE_URL, // Ensure your .env file is properly set up
 });
+
 const useAxiosSecure = () => {
   const navigate = useNavigate();
   const { logOut } = useAuth();
+
+  // Attach the token to request headers
   axiosSecure.interceptors.request.use(
-    function (config) {
+    (config) => {
       const token = localStorage.getItem("access-token");
-      console.log("request stopped by interceptors", token);
-      config.headers.authorization = `Bearer ${token}`;
+      if (token) {
+        config.headers.authorization = `Bearer ${token}`;
+      }
       return config;
     },
-    function (error) {
-      //Do something with request error
+    (error) => {
+      console.error("Request error:", error);
       return Promise.reject(error);
     }
   );
-  // intercepts 401 and 403 status
+
+  // Handle response errors
   axiosSecure.interceptors.response.use(
-    function (response) {
-      return response;
-    },
+    (response) => response,
     async (error) => {
-      const status = error.response.status;
-      console.log("status error in the interceptor", status);
-      // for 401 or 403 logout the user and move the user to the login page
+      const status = error.response?.status;
       if (status === 401 || status === 403) {
+        alert("Session expired. Please log in again.");
         await logOut();
         navigate("/login");
       }
